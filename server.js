@@ -18,12 +18,23 @@ connection.connect();
 
 app.get('/warehouse', function(req, res){
 	connection.query('SELECT * FROM warehouse', function(err, result) {
-		// console.log(result)
 	if (err) {
-			console.log(err)
+			console.log(err);
 	}
-	res.send(result);
+	res.send({
+    "result": "ok",
+    "clothes": result
+    });
 	});
+});
+
+
+app.get('/price-check', function(req, res){
+    // console.log(req.query)
+    let item = req.query.item
+    let size = req.query.size
+    let quantity = req.query.quantity
+    console.log(item, size, quantity)
 });
 
 

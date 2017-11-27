@@ -96,4 +96,12 @@ Return the following JSON if the quantity is smaller than 3:
 ## 2) Quiz time
 
  - What is a middleware and why it's used? (2p)
+        Middleware is a small software that connects disparate computer systems.
+        It take place between the operating system and applications on different servers and simplifies the development of applications that leverage services from other applications.
+
+        We use it to simplifies the communication process. This built-in security keeps the data safe as it travels across the wire.
+
  - What's the main difference between the `onload` and the `readystatechange` provided by the `XMLHttpRequest` object? (1p)
+
+        `onload` runs when all content is loaded on the page.
+        `readystatechange` runs when DOM is ready, all the elements are on the page and ready to do something.
