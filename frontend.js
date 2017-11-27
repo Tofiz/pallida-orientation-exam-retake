@@ -30,31 +30,28 @@ function creatTable(result) {
 function sendOrder() {
 	let item = document.querySelector('.selectitem');
 	let size = document.querySelector('.selectsize');
-	let quantity = document.querySelector('.inputquantity')
-
-	
+	let quantity = document.querySelector('.inputquantity');
 	let button = document.querySelector('.button');
 	button.addEventListener('click', function(){
 		console.log(item.value);
 		console.log(size.value);
 		console.log(quantity.value);
 		ajax('GET', `http://localhost:8080/price-check?item=${item.value}&size=${size.value}&quantity=${quantity.value}`, displayMessage);
-		console.log("the order is sent")
+		console.log("the order is sent");
 	});
 };
 
 
 function displayMessage(result) {
-	console.log(result.result)
+	console.log(result.result);
 	let atleast = "please order at least 3, one for yourself, two for your friends"; 
 	if (result.result === atleast) {
 	var alertWindow = window.open("assets/smaller.html", "", "width=500,height=200")
 	} else {
 	var okWindow = window.open("assets/larger.html", "", "width=500,height=200")
-	}
-
+	};
 };
 
 
 ajax('GET', 'http://localhost:8080/warehouse', creatTable);
-console.log("ajax is sent")
+console.log("ajax is sent");

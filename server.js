@@ -20,7 +20,7 @@ app.get('/warehouse', function(req, res){
 	connection.query('SELECT * FROM warehouse', function(err, result) {
 	if (err) {
 			console.log(err);
-	}
+	};
 	res.send({
     "result": "ok",
     "clothes": result
@@ -38,6 +38,7 @@ app.get('/price-check', function(req, res){
 
   let querry = (connection.query('SELECT * FROM warehouse WHERE in_store < ?', quantity));
   console.log(querry);
+
   if (quantity > 3) {
     res.send({
       "result": "ok",
@@ -53,7 +54,7 @@ app.get('/price-check', function(req, res){
 });
 
 app.get('/toomuch',function(req, res){
-  res.send(toomuch.html)
+  res.send(toomuch.html);
 });
 
 app.listen(8080, () => console.log('RUNNING at "http://localhost:8080"'));
