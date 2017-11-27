@@ -16,16 +16,16 @@ var table = document.querySelector('table')
 function creatTable(result) {
 	let htmlString = '<tr>';
 	result.forEach(function(e) {
-		console.log(e);
-				htmlString = htmlString + `<tr><td>${e.item_name}</td>
-																	<td>${e.manufacturer}</td>
-																	<td>${e.category}</td>
-																	<td>${e.size}</td>
-																	<td>${e.unit_price}</td>
-																	</tr>`;
-																	htmlString = htmlString + '</tr>';
-																	table.innerHTML += htmlString;
-		});
+		// console.log(e);
+				htmlString += `<tr><td>${e.item_name}</td>
+											 <td>${e.manufacturer}</td>
+											 <td>${e.category}</td>
+											 <td>${e.size}</td>
+											 <td>${e.unit_price}</td>
+											 </tr>`;
+											 htmlString + '</tr>';
+	});
+	table.innerHTML += htmlString;
 
 };
 
