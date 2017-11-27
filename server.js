@@ -31,10 +31,19 @@ app.get('/warehouse', function(req, res){
 
 app.get('/price-check', function(req, res){
     // console.log(req.query)
-    let item = req.query.item
-    let size = req.query.size
-    let quantity = req.query.quantity
-    console.log(item, size, quantity)
+    let item = req.query.item;
+    let size = req.query.size;
+    let quantity = req.query.quantity;
+    console.log(item, size, quantity);
+
+    if (quantity > 3) {
+      res.send({
+        "result": "ok",
+        "total_price": "390"
+    });
+    } else if (quantity < 3) {
+      res.send({"result":"please order at least 3, one for yourself, two for your friends"})
+    }
 });
 
 
