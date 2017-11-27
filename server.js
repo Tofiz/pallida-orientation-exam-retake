@@ -53,8 +53,4 @@ app.get('/price-check', function(req, res){
   };
 });
 
-app.get('/toomuch',function(req, res){
-  res.send(toomuch.html);
-});
-
 app.listen(8080, () => console.log('RUNNING at "http://localhost:8080"'));
