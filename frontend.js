@@ -14,7 +14,6 @@ function creatTable(result) {
 	let table = document.querySelector('.table');
 	let htmlString = '<tr>';
 	result.clothes.forEach(function(e) {
-		// console.log(e);
 				htmlString += `<tr><td>${e.item_name}</td>
 											 <td>${e.manufacturer}</td>
 											 <td>${e.category}</td>
@@ -28,7 +27,6 @@ function creatTable(result) {
 };
 
 
-
 function sendOrder() {
 	let item = document.querySelector('.selectitem');
 	let size = document.querySelector('.selectsize');
@@ -37,11 +35,20 @@ function sendOrder() {
 	
 	let button = document.querySelector('.button');
 	button.addEventListener('click', function(){
-		console.log(item.value)
-		console.log(size.value)
-		console.log(quantity.value)
-		ajax('GET', `http://localhost:8080/price-check?item=${item.value}&size=${size.value}&quantity=${quantity.value}`, null);
+		console.log(item.value);
+		console.log(size.value);
+		console.log(quantity.value);
+		ajax('GET', `http://localhost:8080/price-check?item=${item.value}&size=${size.value}&quantity=${quantity.value}`, displayMessage);
+		console.log("the order is sent")
 	});
+};
+
+
+function displayMessage(result) {
+	console.log(result.result)
+	let atleast = "please order at least 3, one for yourself, two for your friends"; 
+	if (result.result === atleast) {
+	var myWindow = window.open("assets/smaller.html", "", "width=800,height=300")};
 };
 
 
