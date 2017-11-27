@@ -9,20 +9,25 @@ function ajax(method, url, callback) {
 	xhr.send();
 };
 
-function createTHead(headerName) {
-	var table = document.querySelector("table");
-	var header = table.createTHead();
-	var row = header.insertRow(0);
-	var cell = row.insertCell(0);
-	cell.innerHTML = `<b>${headerName}</b>`;
-}
 
+var table = document.querySelector('table')
+// var th = document.querySelector('th')
 
 function creatTable(result) {
-	console.log("here comes the table")
-	createTHead()
+	let htmlString = '<tr>';
+	result.forEach(function(e) {
+		console.log(e);
+				htmlString = htmlString + `<tr><td>${e.item_name}</td>
+																	<td>${e.manufacturer}</td>
+																	<td>${e.category}</td>
+																	<td>${e.size}</td>
+																	<td>${e.unit_price}</td>
+																	</tr>`;
+																	htmlString = htmlString + '</tr>';
+																	table.innerHTML += htmlString;
+		});
 
-}
+};
 
 ajax('GET', 'http://localhost:8080/warehouse', creatTable);
 console.log("ajax is sent")
