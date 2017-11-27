@@ -48,7 +48,11 @@ function displayMessage(result) {
 	console.log(result.result)
 	let atleast = "please order at least 3, one for yourself, two for your friends"; 
 	if (result.result === atleast) {
-	var myWindow = window.open("assets/smaller.html", "", "width=800,height=300")};
+	var alertWindow = window.open("assets/smaller.html", "", "width=500,height=200")
+	} else {
+	var okWindow = window.open("assets/larger.html", "", "width=500,height=200")
+	}
+
 };
 
 
